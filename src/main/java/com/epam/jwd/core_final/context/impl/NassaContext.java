@@ -51,7 +51,7 @@ public class NassaContext implements ApplicationContext {
     @Override
     public <T extends BaseEntity> Collection<T> retrieveBaseEntityList(Class<T> tClass) {
         return null;
-    } //TODO
+    }
 
     /**
      * @throws InvalidStateException
