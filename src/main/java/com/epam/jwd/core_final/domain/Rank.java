@@ -19,20 +19,20 @@ public enum Rank implements BaseEntity {
         return id;
     }
 
-    /**
-     * todo via java.lang.enum methods!
-     */
     @Override
     public String getName() {
-        return null;
+        return resolveRankById(id).getName();
     }
 
     /**
-     * todo via java.lang.enum methods!
-     *
      * @throws UnknownEntityException if such id does not exist
      */
-    public static Rank resolveRankById(int id) {
-        return null;
+    public static Rank resolveRankById(long id) {
+        for (Rank rank : Rank.values()) {
+            if (rank.id.equals(id)) {
+                return rank;
+            }
+        }
+        throw new UnknownEntityException("Such rank Id does not exist: " + id);
     }
 }

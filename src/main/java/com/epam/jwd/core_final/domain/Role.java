@@ -19,19 +19,20 @@ public enum Role implements BaseEntity {
         return id;
     }
 
-    /**
-     * todo via java.lang.enum methods!
-     */
     @Override
     public String getName() {
-        return null;
+        return resolveRoleById(id).getName();
     }
 
     /**
-     * todo via java.lang.enum methods!
      * @throws UnknownEntityException if such id does not exist
      */
-    public static Role resolveRoleById(int id) {
-        return null;
+    public static Role resolveRoleById(long id) {
+        for (Role role : Role.values()) {
+            if (role.id.equals(id)) {
+                return role;
+            }
+        }
+        throw new UnknownEntityException("Such role Id does not exist: " + id);
     }
 }
